@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://dulq42r2seb50"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_2co38"]
+[ext_resource type="Script" uid="uid://b7nncfb6j81jd" path="res://scripts/player.gd" id="1_2co38"]
 [ext_resource type="Texture2D" uid="uid://2610mc5a6cps" path="res://sprites/1 - Mr. Chomps/Crawl_&_Chomp_(32 x 32).png" id="1_5fb1h"]
 [ext_resource type="Texture2D" uid="uid://cdercsmariwae" path="res://sprites/1 - Mr. Chomps/Hurt_(32 x 32).png" id="3_0crm2"]
 [ext_resource type="Texture2D" uid="uid://dmgiq4useobev" path="res://sprites/1 - Mr. Chomps/Crawling_(32 x 32).png" id="3_a23i6"]
@@ -213,5 +213,5 @@ shape = SubResource("RectangleShape2D_qf32k")
 texture_filter = 1
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_6x54c")
-animation = &"jump"
+animation = &"walk"
 autoplay = "idle"
