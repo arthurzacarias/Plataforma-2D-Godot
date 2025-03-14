@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=4 uid="uid://41l4i2qmlmly"]
+
+[ext_resource type="PackedScene" uid="uid://dulq42r2seb50" path="res://entities/player.tscn" id="2_o55n4"]
+[ext_resource type="TileSet" uid="uid://cqt3e5y2o47l8" path="res://scenes/game.tres" id="3_e4l1y"]
+[ext_resource type="Texture2D" uid="uid://dkn0n1dpb4x77" path="res://Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="4_o55n4"]
+[ext_resource type="Texture2D" uid="uid://ci2dxsvepinqo" path="res://Seasonal Tilesets/3 - Tropics/Background parts/4 - Background_clouds.png" id="5_63ryy"]
+[ext_resource type="Texture2D" uid="uid://d03l67vgotv1x" path="res://Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="6_wyuaa"]
+[ext_resource type="Texture2D" uid="uid://cjblkcukggcvl" path="res://Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="7_ttii7"]
+[ext_resource type="Texture2D" uid="uid://kmvk2kw5f5cc" path="res://Seasonal Tilesets/3 - Tropics/Background parts/2 - Waters_version_2.png" id="8_tqg4o"]
+[ext_resource type="Texture2D" uid="uid://ckwnif7d4u5j1" path="res://Seasonal Tilesets/3 - Tropics/Tropics_entities (16 x 16).png" id="9_ttii7"]
+[ext_resource type="Script" uid="uid://dg1xxtu3utytm" path="res://scripts/water.gd" id="10_tqg4o"]
+[ext_resource type="TileSet" uid="uid://i6rarb2jy8eq" path="res://scenes/props.tres" id="10_ttii7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uy2sc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ttii7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tqg4o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uy2sc"]
+texture = ExtResource("9_ttii7")
+12:5/animation_separation = Vector2i(1, 0)
+12:5/animation_frame_0/duration = 1.0
+12:5/animation_frame_1/duration = 1.0
+12:5/0 = 0
+12:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o3kau"]
+sources/0 = SubResource("TileSetAtlasSource_uy2sc")
+
+[node name="tropic" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_o55n4")]
+position = Vector2(46, 148)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAsABAADAAEAAAAAAAwABAADAAIAAAABAAsABAAEAAEAAAABAAwABAAEAAIAAAACAAsABAAEAAEAAAACAAwABAAEAAIAAAADAAsABAAEAAEAAAADAAwABAAEAAIAAAAEAAsABAAEAAEAAAAEAAwABAAEAAIAAAAFAAsABAAEAAEAAAAFAAwABAAEAAIAAAAGAAsABAAEAAEAAAAGAAwABAAEAAIAAAAHAAsABAAEAAEAAAAHAAwABAAEAAIAAAALAAsABAAEAAEAAAALAAwABAAEAAIAAAAMAAsABAAEAAEAAAAMAAwABAAEAAIAAAANAAsABAAEAAEAAAANAAwABAAEAAIAAAAOAAsABAAEAAEAAAAOAAwABAAEAAIAAAAPAAsABAAEAAEAAAAPAAwABAAEAAIAAAAQAAsABAAEAAEAAAAQAAwABAAEAAIAAAARAAsABAAEAAEAAAARAAwABAAEAAIAAAASAAsABAAEAAEAAAASAAwABAAEAAIAAAATAAsABAAEAAEAAAATAAwABAAEAAIAAAAUAAsABAAEAAEAAAAUAAwABAAEAAIAAAAVAAsABAAEAAEAAAAVAAwABAAEAAIAAAAWAAsABAAEAAEAAAAWAAwABAAEAAIAAAAXAAsABAAEAAEAAAAXAAwABAAEAAIAAAAYAAsABAAEAAEAAAAYAAwABAAEAAIAAAAZAAsABAAEAAEAAAAZAAwABAAEAAIAAAAaAAsABAAEAAEAAAAaAAwABAAEAAIAAAAbAAsABAAEAAEAAAAbAAwABAAEAAIAAAAcAAsABAAEAAEAAAAcAAwABAAEAAIAAAAdAAsABAAEAAEAAAAdAAwABAAEAAIAAAAeAAsABAAEAAEAAAAeAAwABAAEAAIAAAAfAAsABAAEAAEAAAAfAAwABAAEAAIAAAAgAAsABAAEAAEAAAAgAAwABAAEAAIAAAAhAAsABAAEAAEAAAAhAAwABAAEAAIAAAAiAAsABAAEAAEAAAAiAAwABAAEAAIAAAAjAAsABAAEAAEAAAAjAAwABAAEAAIAAAA=")
+tile_set = ExtResource("3_e4l1y")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(1, 1)
+texture = ExtResource("4_o55n4")
+centered = false
+
+[node name="Background clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background clouds"]
+position = Vector2(1, 1)
+texture = ExtResource("5_63ryy")
+centered = false
+
+[node name="Floating clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Floating clouds"]
+position = Vector2(1, 1)
+texture = ExtResource("6_wyuaa")
+centered = false
+
+[node name="Waters" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(288, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/Waters"]
+position = Vector2(1, -10)
+sprite_frames = SubResource("SpriteFrames_uy2sc")
+autoplay = "default"
+centered = false
+
+[node name="Water" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIAAsAAAAMAAUAAAAIAAwAAAAMAAYAAAAKAAsAAAAMAAUAAAAJAAsAAAAMAAUAAAAJAAwAAAAMAAYAAAAKAAwAAAAMAAYAAAAAAAsAAAAMAAUAAAAAAAwAAAAMAAYAAAABAAsAAAAMAAUAAAABAAwAAAAMAAYAAAACAAsAAAAMAAUAAAACAAwAAAAMAAYAAAADAAsAAAAMAAUAAAADAAwAAAAMAAYAAAAEAAsAAAAMAAUAAAAEAAwAAAAMAAYAAAAFAAsAAAAMAAUAAAAFAAwAAAAMAAYAAAAGAAsAAAAMAAUAAAAGAAwAAAAMAAYAAAAHAAsAAAAMAAUAAAAHAAwAAAAMAAYAAAALAAsAAAAMAAUAAAALAAwAAAAMAAYAAAAMAAsAAAAMAAUAAAAMAAwAAAAMAAYAAAANAAsAAAAMAAUAAAANAAwAAAAMAAYAAAAOAAsAAAAMAAUAAAAOAAwAAAAMAAYAAAAPAAsAAAAMAAUAAAAPAAwAAAAMAAYAAAAQAAsAAAAMAAUAAAAQAAwAAAAMAAYAAAARAAsAAAAMAAUAAAARAAwAAAAMAAYAAAASAAsAAAAMAAUAAAASAAwAAAAMAAYAAAATAAsAAAAMAAUAAAATAAwAAAAMAAYAAAAUAAsAAAAMAAUAAAAUAAwAAAAMAAYAAAAVAAsAAAAMAAUAAAAVAAwAAAAMAAYAAAAWAAsAAAAMAAUAAAAWAAwAAAAMAAYAAAAXAAsAAAAMAAUAAAAXAAwAAAAMAAYAAAAYAAsAAAAMAAUAAAAYAAwAAAAMAAYAAAAZAAsAAAAMAAUAAAAZAAwAAAAMAAYAAAAaAAsAAAAMAAUAAAAaAAwAAAAMAAYAAAAbAAsAAAAMAAUAAAAbAAwAAAAMAAYAAAAcAAsAAAAMAAUAAAAcAAwAAAAMAAYAAAAdAAsAAAAMAAUAAAAdAAwAAAAMAAYAAAAeAAsAAAAMAAUAAAAeAAwAAAAMAAYAAAAfAAsAAAAMAAUAAAAfAAwAAAAMAAYAAAAgAAsAAAAMAAUAAAAgAAwAAAAMAAYAAAAhAAsAAAAMAAUAAAAhAAwAAAAMAAYAAAAiAAsAAAAMAAUAAAAiAAwAAAAMAAYAAAAjAAsAAAAMAAUAAAAjAAwAAAAMAAYAAAD9/wsAAAAMAAUAAAD9/wwAAAAMAAYAAAD+/wsAAAAMAAUAAAD+/wwAAAAMAAYAAAD//wsAAAAMAAUAAAD//wwAAAAMAAYAAAA=")
+tile_set = SubResource("TileSet_o3kau")
+script = ExtResource("10_tqg4o")
+speed = 2.0
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAAkAAQAFAAEAAAANAAoAAQAJAAEAAAAOAAoAAQAKAAEAAAAPAAoAAQALAAEAAAA=")
+tile_set = ExtResource("10_ttii7")
